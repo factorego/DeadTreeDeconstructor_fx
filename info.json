@@ -1,9 +1,12 @@
 {
-  "name": "DeadTreeDeconstructor",
+  "name": "DeadTreeDeconstructor_fx",
   "version": "1.1.0",
   "factorio_version": "2.0",
-  "title": "Dead Tree Deconstructor",
+  "title": "Dead Tree Deconstructor FX",
   "author": "Stargateur",
   "contact": "",
-  "description": "Provides a shortcut to order a deconstruct of all dead trees in the area."
+  "description": "Provides a shortcut to order a deconstruct of all dead trees in the area. (FX version - incompatible with the original mod)",
+  "dependencies": [
+    "! DeadTreeDeconstructor"
+  ]
 }
