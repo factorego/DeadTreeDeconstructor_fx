@@ -1,0 +1,9 @@
+{
+  "name": "DeadTreeDeconstructor",
+  "version": "1.1.0",
+  "factorio_version": "2.0",
+  "title": "Dead Tree Deconstructor",
+  "author": "Stargateur",
+  "contact": "",
+  "description": "Provides a shortcut to order a deconstruct of all dead trees in the area."
+}
