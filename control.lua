@@ -26,8 +26,8 @@ script.on_event(defines.events.on_player_selected_area, function(event)
   end
 end)
 
--- alt
-script.on_event(defines.events.on_player_alt_selected_area, function(event)
+-- reverse (Shift): deconstruct trees that are NOT dead enough
+script.on_event(defines.events.on_player_reverse_selected_area, function(event)
   if event.item ~= "dead-tree-deconstructor" then
     return
   end
@@ -36,6 +36,21 @@ script.on_event(defines.events.on_player_alt_selected_area, function(event)
   local n = player.mod_settings["dead-tree-deconstructor-percentage"].value / 100
   for _, entity in ipairs(event.entities) do
     if not (entity.tree_stage_index_max == 0 or entity.tree_stage_index / entity.tree_stage_index_max >= n) then
+        entity.order_deconstruction(player.force, player)
+    end
+  end
+end)
+
+-- alt+reverse (Alt+Shift): deconstruct trees that ARE dead enough
+script.on_event(defines.events.on_player_alt_reverse_selected_area, function(event)
+  if event.item ~= "dead-tree-deconstructor" then
+    return
+  end
+
+  local player = game.get_player(event.player_index)
+  local n = player.mod_settings["dead-tree-deconstructor-percentage"].value / 100
+  for _, entity in ipairs(event.entities) do
+    if entity.tree_stage_index_max == 0 or entity.tree_stage_index / entity.tree_stage_index_max >= n then
         entity.order_deconstruction(player.force, player)
     end
   end

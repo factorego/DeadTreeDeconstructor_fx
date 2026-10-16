@@ -1,14 +1,21 @@
 local icons = {{
-  icon = "__DeadTreeDeconstructor__/thumbnail.png",
+  icon = "__DeadTreeDeconstructor_fx__/thumbnail.png",
   icon_size = 288,
 }}
 
 local select = {
-  mode = "deconstruct",
-  entity_type_filters = { "tree" },
-  tile_filters = { "tile-unknown" },
+  border_color = {1, 0, 0},
+  mode = {"deconstruct", "trees"},
+  ignore_cannot_select_entities = true,
+  ignore_cannot_select_tiles = true,
   cursor_box_type = "entity",
-  border_color = { r = 1, g = 0, b = 0 }
+}
+local reverse_select = {
+  border_color = {1, 0, 0},
+  mode = {"deconstruct", "trees"},
+  ignore_cannot_select_entities = true,
+  ignore_cannot_select_tiles = true,
+  cursor_box_type = "entity",
 }
 
 data:extend({
@@ -30,5 +37,7 @@ data:extend({
     stack_size = 1,
     select = select,
     alt_select = select,
+    reverse_select = reverse_select,
+    alt_reverse_select = reverse_select,
   },
 })
